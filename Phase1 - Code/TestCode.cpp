@@ -10,7 +10,7 @@ int main()
 	//Create Input and Output objects to test
 	Output *pOut = new Output();
 	Input *pIn = pOut->CreateInput();
-	
+
 	//Starting the test
 	pOut->PrintMessage("This demo is to test input and output classes, Click anywhere to start the test");
 	pIn->GetPointClicked(x,y);	//Wait for any click
@@ -24,7 +24,7 @@ int main()
 
 	pOut->PrintMessage("TEST1: Drawing Tool bar and Status bar, Click anywhere to continue");
 	pIn->GetPointClicked(x,y);	//Wait for any click
-
+	
 	
 	///////////////////////////////////////////////////////////////////////////////////
 	// TEST 2:	
@@ -36,7 +36,7 @@ int main()
 	pIn->GetPointClicked(x,y);	//Wait for any click
 
 	GfxInfo gfxInfo;//to be used with draw function of the class Ouput
-	Point P1, P2;
+	Point P1, P2, P3;
 
 	/// 2.1- Rectangle Test ///
 	/// =================== 
@@ -89,40 +89,162 @@ int main()
 
 	///TODO: Add code to draw Line, Normal and Highlighted
 
+	//2.2.1
+	pOut->PrintMessage("Drawing a Line ==> Normal,  Click two points");
+	pIn->GetPointClicked(P1.x, P1.y);
+	pIn->GetPointClicked(P2.x, P2.y);
+	gfxInfo.BorderWdth = 5;
+	gfxInfo.DrawClr = BLACK;	
+	gfxInfo.isFilled = false;
+	pOut->DrawLine(P1, P2, gfxInfo, false);
+	//2.2.2
+	pOut->PrintMessage("Drawing a Line ==> Highlighted , Click to Highlight");
+	pIn->GetPointClicked(x,y);	//Wait for any click
+	pOut->DrawLine(P1, P2, gfxInfo, true);
+	
+
 	pOut->PrintMessage("Drawing a Line Test ==> OK,  Click anywhere to continue");
 	pIn->GetPointClicked(x,y);	//Wait for any click
 	pOut->ClearDrawArea();
 
 	/// 2.3- Triangle Test ///
 	/// =================== 
-	pOut->PrintMessage("Drawing a Triangle, filled/non-filled and Highlighted filled/non-filled,  Click to continue");
+	pOut->PrintMessage("Drawing a Triangle, filled  Highlighted INVERTED,  Click to continue");
 	pIn->GetPointClicked(x,y);	//Wait for any click
 
 	///TODO: Add code to draw Triangle in all possible states
 
+	//2.3.1
+	pOut->PrintMessage("Drawing a Triangle ==> non-filled,  Click three  points");
+	pIn->GetPointClicked(P1.x, P1.y);
+	pIn->GetPointClicked(P2.x, P2.y);
+	pIn->GetPointClicked(P3.x, P3.y);
+	gfxInfo.BorderWdth = 5;
+	gfxInfo.DrawClr = BLACK;	
+	gfxInfo.isFilled = false;
+	gfxInfo.isINVERTED = false;
+	pOut->DrawTriangle(P1, P2,P3, gfxInfo, false);
+
+	//2.3.2
+	pOut->PrintMessage("Drawing a Triangle ==> Highlighted non-filled, Click to Highlight");
+	pIn->GetPointClicked(x,y);	//Wait for any click
+	pOut->DrawTriangle(P1, P2,P3, gfxInfo, true);
+
+	//2.3.3
+	pOut->PrintMessage("Drawing a Triangle ==>  filled,  Click three  points");
+	pIn->GetPointClicked(P1.x, P1.y);
+	pIn->GetPointClicked(P2.x, P2.y);
+	pIn->GetPointClicked(P3.x, P3.y);
+	gfxInfo.BorderWdth = 5;
+	gfxInfo.DrawClr = BLACK;	
+	gfxInfo.isFilled = true;
+	gfxInfo.isINVERTED = false;
+	pOut->DrawTriangle(P1, P2,P3, gfxInfo, false);
+
+	//2.3.4
+	pOut->PrintMessage("Drawing a Triangle ==> Highlighted filled, Click to Highlight");
+	pIn->GetPointClicked(x,y);	//Wait for any click
+	pOut->DrawTriangle(P1, P2,P3, gfxInfo, true);
+
+	//2.3.5
+	pOut->PrintMessage("Drawing a Triangle ==> INVERTED,  Click three  points");
+	pIn->GetPointClicked(P1.x, P1.y);
+	pIn->GetPointClicked(P2.x, P2.y);
+	pIn->GetPointClicked(P3.x, P3.y);
+	gfxInfo.BorderWdth = 5;
+	gfxInfo.DrawClr = BLACK;	
+	gfxInfo.isFilled = false;
+	gfxInfo.isINVERTED = true;
+	pOut->DrawTriangle(P1, P2,P3, gfxInfo, false);
+
+	//2.3.6
+	pOut->PrintMessage("Drawing a Triangle ==> Highlighted INVERTED, Click to Highlight");
+	pIn->GetPointClicked(x,y);	//Wait for any click
+	pOut->DrawTriangle(P1, P2,P3, gfxInfo, true);
+
 	pOut->PrintMessage("Drawing a Triangle Test ==> OK,  Click anywhere to continue");
 	pIn->GetPointClicked(x,y);	//Wait for any click
 	pOut->ClearDrawArea();
-	
+
 	/// 2.4- Rhombus Test ///
 	/// =================== 
 	pOut->PrintMessage("Drawing a Rhombus, filled/non-filled and Highlighted filled/non-filled,  Click to continue");
 	pIn->GetPointClicked(x,y);	//Wait for any click
-
-	///TODO: Add code to draw Rhombus in all possible states
-
-	pOut->PrintMessage("Drawing a Rhombus Test ==> OK,  Click anywhere to continue");
-	pIn->GetPointClicked(x,y);	//Wait for any click
-	pOut->ClearDrawArea();
 	
-	/// 2.5- Rhombus Test ///
-	/// =================== 
-	pOut->PrintMessage("Drawing an Ellipse, filled/non-filled and Highlighted filled/non-filled,  Click to continue");
-	pIn->GetPointClicked(x,y);	//Wait for any click
-
+	// 2.4.1 - Drawing non-filled rectangle
+	pOut->PrintMessage("Drawing a Rombus ==> non-filled,  Click two points");
+	pIn->GetPointClicked(P1.x, P1.y);
+	pIn->GetPointClicked(P2.x, P2.y);
+	int iWidth=10,iHeight=10;
+	gfxInfo.BorderWdth = 5;
+	gfxInfo.DrawClr = BLACK;	//any color for border
+	gfxInfo.isFilled = false;	//Figure is NOT filled
+	
+	
+	
+	
 	///TODO: Add code to draw Ellipse in all possible states
 
+	/// 2.5- Ellipse  Test ///
+	/// =================== 
+	pOut->PrintMessage("Drawing an Ellipse, filled  Highlighted INVERTED,  Click to continue");
+	pIn->GetPointClicked(x,y);	//Wait for any click
+
+	//2.5.1
+	pOut->PrintMessage("Drawing an Ellipse ==> non-filled,  Click two  points");
+	pIn->GetPointClicked(P1.x, P1.y);
+	pIn->GetPointClicked(P2.x, P2.y);
+	gfxInfo.BorderWdth = 5;
+	gfxInfo.DrawClr = BLACK;	
+	gfxInfo.isFilled = false;
+	gfxInfo.isINVERTED = false;
+	pOut->DrawEllipse(P1, P2, gfxInfo, false);
+
+	//2.5.2
+	pOut->PrintMessage("Drawing an Ellipse ==> Highlighted non-filled, Click to Highlight");
+	pIn->GetPointClicked(x,y);	//Wait for any click
+	pOut->DrawEllipse(P1, P2, gfxInfo, true);
+
+	//2.5.3
+	pOut->PrintMessage("Drawing an Ellipse ==>  filled,  Click two  points");
+	pIn->GetPointClicked(P1.x, P1.y);
+	pIn->GetPointClicked(P2.x, P2.y);
+	gfxInfo.BorderWdth = 5;
+	gfxInfo.DrawClr = BLACK;	
+	gfxInfo.isFilled = true;
+	gfxInfo.isINVERTED = false;
+	pOut->DrawEllipse(P1, P2, gfxInfo, false);
+
+
+	//2.5.4
+	pOut->PrintMessage("Drawing a Ellipse ==> Highlighted filled, Click to Highlight");
+	pIn->GetPointClicked(x,y);	//Wait for any click
+	pOut->DrawEllipse(P1, P2, gfxInfo, true);
+
+	//2.5.5
+	pOut->PrintMessage("Drawing a Ellipse ==> INVERTED,  Click two  points");
+	pIn->GetPointClicked(P1.x, P1.y);
+	pIn->GetPointClicked(P2.x, P2.y);
+	gfxInfo.BorderWdth = 5;
+	gfxInfo.DrawClr = BLACK;	
+	gfxInfo.isFilled = false;
+	gfxInfo.isINVERTED = true;
+	pOut->DrawEllipse(P1, P2, gfxInfo, false);
+
+
+	//2.5.6
+	pOut->PrintMessage("Drawing an Ellipse ==> Highlighted INVERTED, Click to Highlight");
+	pIn->GetPointClicked(x,y);	//Wait for any click
+	pOut->DrawEllipse(P1, P2, gfxInfo, true);
+
+	pOut->PrintMessage("Drawing an Ellipse Test ==> OK,  Click anywhere to continue");
+
+	
 	pOut->PrintMessage("Drawing a Ellipse Test ==> OK,  Click anywhere to continue");
+	
+
+	
+
 	pIn->GetPointClicked(x,y);	//Wait for any click
 	pOut->ClearDrawArea();
 	
@@ -137,8 +259,15 @@ int main()
 
 	///TODO: Add code here to 
 	// 1- Read a string from the user on the status bar
+	
+	pIn->GetSrting(pOut);
+	
 	// 2- After reading the stirng clear the status bar
+	pOut->ClearStatusBar();
 	// 3- print on the status bar "You Entered" then print the string
+	pOut->PrintMessage("You Entered");
+	
+
 
 	pIn->GetPointClicked(x,y);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -179,7 +308,28 @@ int main()
 		case DRAW_TRI:
 				pOut->PrintMessage("Action: Draw a Triangle , Click anywhere");
 				break;
-
+		case Copy:
+				pOut->PrintMessage("Action: Copy , Click anywhere");
+				break;
+		case Cut:
+			    pOut->PrintMessage("Action: Cut , Click anywhere");
+				break;
+		case Paste:
+				pOut->PrintMessage("Action: Paste , Click anywhere");
+				break;
+        case SAVE:
+			    pOut->PrintMessage("Action: save , Click anywhere");
+				break;
+		case SAVE_BY_TYPE:
+			    pOut->PrintMessage("Action: savetype , Click anywhere");
+				break;
+		
+		case DEL:
+			    pOut->PrintMessage("Action: Delete , Click anywhere");
+				break;
+		case LOAD:
+			    pOut->PrintMessage("Action: Load , Click anywhere");
+				break;
 		case CHNG_DRAW_CLR:
 				pOut->PrintMessage("Action: Change Figure's drawing color , Click anywhere");
 				break;
@@ -202,7 +352,7 @@ int main()
 
 		case TO_DRAW:
 				pOut->PrintMessage("Action: Switch to Draw Mode, creating simualtion tool bar");
-				pOut->CreateDrawToolBar();
+				
 				break;
 
 		case TO_PLAY:
@@ -226,5 +376,3 @@ int main()
 	delete pOut;	
 	return 0;
 }
-
-
