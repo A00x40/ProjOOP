@@ -18,7 +18,19 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	//Note: Items are ordered here as they appear in menu
 	//If you want to change the menu items order, change the order here
 	ITM_RECT,		//Recangle item in menu
-	
+	ITM_TRI,
+	ITM_RHOM,
+	ITM_ELIPSE,
+	ITM_LINE,
+	ITM_SELECT,
+	ITM_SWTOPLAY,
+	ITM_DELETE,
+	ITM_COPY,
+	ITM_PASTE,
+	ITM_SAVE,
+	ITM_SAVEGRAPH,
+	ITM_SAVETYPE,
+	ITM_LOAD,
 	//TODO: Add more items names here
 
 	ITM_EXIT,		//Exit item
