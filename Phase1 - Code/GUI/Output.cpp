@@ -97,7 +97,23 @@ void Output::CreateDrawToolBar() const
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+void Output::DrawRectDrawcolor() const
+{
+	pWind->SetPen(BLUE,1);
+	pWind->DrawLine(0,UI.ToolBarHeight+1,350,UI.ToolBarHeight+1);
 
+	pWind->SetPen(WHITE,1);
+	pWind->SetBrush(WHITE);
+	pWind->DrawRectangle(0,UI.ToolBarHeight+2,350,UI.ToolBarHeight+61);
+
+	pWind->SetPen(BLUE,1);
+	pWind->DrawLine(0,UI.ToolBarHeight+62,350,UI.ToolBarHeight+62);
+	
+	string MenuItemImages[Color_ITM_COUNT];
+	MenuItemImages[ITM_RED] = "images\\MenuItems\\RED.jpg";
+	for(int i=0; i<Color_ITM_COUNT; i++)
+	pWind->DrawImage(MenuItemImages[i], i*UI.MenuItemWidth,  UI.ToolBarHeight+2, UI.MenuItemWidth, UI.ToolBarHeight);
+}
 void Output::CreatePlayToolBar() const
 {
 	UI.InterfaceMode = MODE_PLAY;
