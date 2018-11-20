@@ -25,7 +25,7 @@ int main()
 	pOut->PrintMessage("TEST1: Drawing Tool bar and Status bar, Click anywhere to continue");
 	pIn->GetPointClicked(x, y);	//Wait for any click
 
-
+    
 	///////////////////////////////////////////////////////////////////////////////////
 	// TEST 2:	
 	//			Drawing all the Figures with all possible states: 
@@ -328,6 +328,9 @@ int main()
 		
 		switch (ActType)
 		{
+		case Select:
+			pOut->PrintMessage("Action: Select a Figure , Click anywhere");
+			break;
 		case DRAW_RECT:
 			pOut->PrintMessage("Action: Draw a Rectangle , Click anywhere");
 			break;
@@ -378,11 +381,13 @@ int main()
 		
 		case CHNG_DRAW_CLR:
 			pOut->PrintMessage("Action: Change Figure's drawing color , Click anywhere");
+			pOut->ClearToolbar();
 			pOut->CreateColorToolBar(CHNG_DRAW_CLR, t);
 			break;
 		
 		case CHNG_FILL_CLR:
 			pOut->PrintMessage("Action: Change Figure's Fill color , Click anywhere");
+			pOut->ClearToolbar();
 			pOut->CreateColorToolBar(CHNG_FILL_CLR, t);
 			break;
 
@@ -400,6 +405,7 @@ int main()
 
 		case TO_PLAY:
 			pOut->PrintMessage("Action: Switch to Play Mode, creating Design tool bar");
+			pOut->ClearToolbar();
 			pOut->CreatePlayToolBar();
 			break;
 		
