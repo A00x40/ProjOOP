@@ -85,43 +85,18 @@ void Output::CreateColorToolBar(ActionType A, string& ActStr) const
 
 
 	string MenuItemImages[COLOR_ITM_COUNT];
-	/*MenuItemImages[ITM_RED] = "images\\MenuItems\\RED.jpg";
-	MenuItemImages[ITM_Blue] = "images\\MenuItems\\Blue.jpg";
-	MenuItemImages[ITM_Green] = "images\\MenuItems\\Green.jpg";
-	MenuItemImages[ITM_Black] = "images\\MenuItems\\Black.jpg";
-	MenuItemImages[ITM_White] = "images\\MenuItems\\White.jpg";
-	MenuItemImages[ITM_Paint] = "images\\MenuItems\\Paint.jpg";
-	*/
-	for (int i = 0; i < COLOR_ITM_COUNT; i++)
-		pWind->DrawImage(MenuItemImages[i], i*UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
-
-	pWind->SetPen(RED, 3);
-	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
-}
-
-/*void Output::CreateFillClrToolBar()const
-{
-	UI.InterfaceMode = MODE_FILL_COLOR;
-
-	pWind->SetBrush(UI.BkGrndColor);
-	pWind->DrawRectangle(0, 0, UI.width, UI.ToolBarHeight);
-	pWind->SetPen(RED, 3);
-
-
-	string MenuItemImages[COLOR_ITM_COUNT];
 	MenuItemImages[ITM_RED] = "images\\MenuItems\\RED.jpg";
 	MenuItemImages[ITM_Blue] = "images\\MenuItems\\Blue.jpg";
 	MenuItemImages[ITM_Green] = "images\\MenuItems\\Green.jpg";
 	MenuItemImages[ITM_Black] = "images\\MenuItems\\Black.jpg";
 	MenuItemImages[ITM_White] = "images\\MenuItems\\White.jpg";
 	MenuItemImages[ITM_Paint] = "images\\MenuItems\\Paint.jpg";
-	
 	for (int i = 0; i < COLOR_ITM_COUNT; i++)
 		pWind->DrawImage(MenuItemImages[i], i*UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
 
 	pWind->SetPen(RED, 3);
 	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
-}*/
+}
 
 
 void Output::CreateDrawToolBar() const
@@ -136,27 +111,26 @@ void Output::CreateDrawToolBar() const
 	//reoder them in UI_Info.h ==> enum DrawMenuItem
 	string MenuItemImages[DRAW_ITM_COUNT];
 	/////////////////////////////////////////////////////////
-/* ///TODO ::: ADD SUITABLE DRAW MODE IMAGES
-	MenuItemImages[ITM_SWTOPLAY] = "images\\MenuItems\\Menu_Play.jpg";
-	MenuItemImages[ITM_LINE] = "images\\MenuItems\\Menu_line1.jpg";
+    ///TODO ::: ADD SUITABLE DRAW MODE IMAGES
+	MenuItemImages[ITM_SELECT] = "images\\MenuItems\\Menu_Select.jpg";
 	MenuItemImages[ITM_RECT] = "images\\MenuItems\\Menu_Rect.jpg";
+	MenuItemImages[ITM_LINE] = "images\\MenuItems\\Menu_line1.jpg";
 	MenuItemImages[ITM_RHOM] = "images\\MenuItems\\Menu_Rohmbus.jpg";
 	MenuItemImages[ITM_TRI] = "images\\MenuItems\\Menu_Triangle.jpg";
-	MenuItemImages[ITM_ELIPSE] = "images\\MenuItems\\Menu_Circ.jpg";
+	MenuItemImages[ITM_ELLIPSE] = "images\\MenuItems\\Menu_Circ.jpg";
+	MenuItemImages[ITM_CHNG_DRW_CLR] = "images\\MenuItems\\Menu_Colors.jpg";
+	MenuItemImages[ITM_CHNG_FILL_CLR] = "images\\MenuItems\\Menu_Fill.jpg";
 	MenuItemImages[ITM_COPY] = "images\\MenuItems\\Menu_Copy.jpg";
 	MenuItemImages[ITM_CUT] = "images\\MenuItems\\Menu_CUT.jpg";
 	MenuItemImages[ITM_PASTE] = "images\\MenuItems\\Menu_PASTE.jpg";
 	MenuItemImages[ITM_DELETE] = "images\\MenuItems\\Menu_Delete.jpg";
-	MenuItemImages[ITM_LOAD] = "images\\MenuItems\\Menu_Load.jpg";
-	MenuItemImages[ITM_SAVE] = "images\\MenuItems\\Menu_save.jpg";
+	MenuItemImages[ITM_SWTOPLAY] = "images\\MenuItems\\Menu_Play.jpg";
+	MenuItemImages[ITM_SAVEGRAPH] = "images\\MenuItems\\Menu_save.jpg";
 	MenuItemImages[ITM_SAVETYPE] = "images\\MenuItems\\Menu_savetype.jpg";
-//	MenuItemImages[ITM_Fill] = "images\\MenuItems\\Menu_Fill.jpg";
-//	MenuItemImages[ITM_Color] = "images\\MenuItems\\Menu_Colors.jpg";
-	MenuItemImages[ITM_SELECT] = "images\\MenuItems\\Menu_Select.jpg";
+	MenuItemImages[ITM_LOAD] = "images\\MenuItems\\Menu_Load.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
-
 	//TODO: Prepare images for each menu item and add it to the list
-*/  /////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////
 	//Draw menu item one image at a time
 	for (int i = 0; i < DRAW_ITM_COUNT; i++)
 		pWind->DrawImage(MenuItemImages[i], i*UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
@@ -181,20 +155,16 @@ void Output::CreatePlayToolBar() const
 	UI.InterfaceMode = MODE_PLAY;
 	///TODO: write code to create Play mode menu
 	string MenuItemImages[PLAY_ITM_COUNT];
-/*///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 ////TODO ::: ADD PLAY MODE MENU IMAGES //////////////////////
 /////////////////////////////////////////////////////////////
-	MenuItemImages[ITM_PICKCOLOR] = "images\\MenuItems\\Menu_Draw.jpg";
-	MenuItemImages[ITM_PICKTYPE] = "images\\MenuItems\\Menu_line.jpg";
-	MenuItemImages[ITM_SWTODRAW] = "images\\MenuItems\\Menu_Draw.jpg";
-//	MenuItemImages[ITM_circ1] = "images\\MenuItems\\Menu_circ.jpg";
-
+	MenuItemImages[ITM_PICKCOLOR] = "images\\MenuItems\\Menu_Exit.jpg";
+	MenuItemImages[ITM_PICKTYPE] = "images\\MenuItems\\Menu_Exit.jpg";
+	MenuItemImages[ITM_SWTODARW] = "images\\MenuItems\\Paint.jpg";
 	MenuItemImages[ITM_PLAYEXIT] = "images\\MenuItems\\Menu_Exit.jpg";
-
-
 	for (int i = 0; i < PLAY_ITM_COUNT; i++)
 		pWind->DrawImage(MenuItemImages[i], i*UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
-*/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 	//Draw a line under the toolbar
 	pWind->SetPen(RED, 3);
@@ -391,4 +361,3 @@ Output::~Output()
 {
 	delete pWind;
 }
-
