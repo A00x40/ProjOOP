@@ -10,33 +10,41 @@
 enum GUI_MODE	//Graphical user interface mode
 {
 	MODE_DRAW,	//Drawing mode (startup mode)
-	MODE_PLAY	//Playing mode
+	MODE_PLAY,	//Playing mode
+	MODE_DRAW_COLOR,
+	MODE_FILL_COLOR,
+	MODE_COLOR
 };
 
 enum DrawMenuItem //The items of the Draw menu (you should add more items)
 {
 	//Note: Items are ordered here as they appear in menu
 	//If you want to change the menu items order, change the order here
+	ITM_SELECT,
+	//Figures
 	ITM_RECT,		//Recangle item in menu
+	//TODO: Add more items names here
 	ITM_TRI,
 	ITM_RHOM,
-	ITM_ELIPSE,
+	ITM_ELLIPSE,
 	ITM_LINE,
-	ITM_SELECT,
-	ITM_SWTOPLAY,
-	ITM_DELETE,
+	//Color Controls
+	ITM_CHNG_DRW_CLR,
+	ITM_CHNG_FILL_CLR,
+	//Other Controls
 	ITM_COPY,
+	ITM_CUT,
 	ITM_PASTE,
+	ITM_DELETE,
+	ITM_SWTOPLAY,
 	ITM_SAVE,
 	ITM_SAVEGRAPH,
 	ITM_SAVETYPE,
 	ITM_LOAD,
-	//TODO: Add more items names here
-
 	ITM_EXIT,		//Exit item
 	
+	//Play Mode Items
 	DRAW_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
-	
 };
 
 enum PlayMenuItem //The items of the Play menu (you should add more items)
@@ -45,14 +53,31 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	//If you want to change the menu items order, change the order here
 	
 	//TODO: Add more items names here
+	ITM_PICKCOLOR,
+	ITM_PICKTYPE,
+	ITM_SWTODRW,
+	ITM_SAVEGRAPH,
+	ITM_PLAYEXIT,		//Exit item
 
 	PLAY_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
 	
 };
 
+enum ColorMenuItems //The items of the Draw/Fill Color menu
+{
+	//Note: Items are ordered here as they appear in menu
+	//If you want to change the menu items order, change the order here
 
+	ITM_RED,
+	ITM_Blue,
+	ITM_Green,
+	ITM_Black,
+	ITM_White,
+	ITM_Paint,
 
+	COLOR_ITM_COUNT ////no. of menu items ==> This should be the last line in this enum
 
+};
 
 __declspec(selectany) //This line to prevent "redefinition error"
 

@@ -13,6 +13,9 @@ enum ActionType //The actions supported (you can add more if needed)
 	DRAW_ELLIPSE,		//Draw Ellipse
 	CHNG_DRAW_CLR,	//Change the drawing color
 	CHNG_FILL_CLR,	//Change the filling color
+	COPY,
+	CUT,
+	PASTE,
 	DEL,			//Delete a figure(s)
 	SAVE,			//Save the whole graph to a file
 	SAVE_BY_TYPE,	//Save the all the figures that have a specific type
@@ -22,11 +25,21 @@ enum ActionType //The actions supported (you can add more if needed)
 	DRAWING_AREA,	//A click on the drawing area
 	STATUS,			//A click on the status bar
 	EMPTY,			//A click on empty place in the toolbar
+	TO_PLAY,			//Switch interface to Play mode
 
+	///TODO: Add more action types (if needed) >> DONE
+	//Play Mode Actions
 	TO_DRAW,		//Switch interface to Draw mode
-	TO_PLAY			//Switch interface to Play mode
+	PICK_BY_TYPE,
+	PICK_BY_COLOR,
 
-	///TODO: Add more action types (if needed)
+	//Color Actions
+	RED_ACT,
+	BLUE_ACT,
+	GREEN_ACT,
+	BLACK_ACT,
+	WHITE_ACT,
+	PAINT
 };
 
 struct Point	//To be used for figures points
@@ -38,7 +51,7 @@ struct GfxInfo	//Graphical info of each figure (you may add more members)
 	color FillClr;	//Fill color of the figure
 	bool isFilled;	//Figure Filled or not
 	int BorderWdth;	//Width of figure borders
-
+	bool isInverted;
 };
 
 #endif
